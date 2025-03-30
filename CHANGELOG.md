@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.4](https://github.com/shovel-kun/react-native-unifile/compare/v0.2.3...v0.2.4) (2025-03-30)
+
+### 🐛 Bug Fixes
+
+* Unifile -> UniFile in nitro.json ([bb37b0c](https://github.com/shovel-kun/react-native-unifile/commit/bb37b0c0da0660bac0d6d5320c5f4de019caa449))
+
 ## [0.2.3](https://github.com/shovel-kun/react-native-unifile/compare/v0.2.2...v0.2.3) (2025-03-30)
 
 ### 🐛 Bug Fixes
