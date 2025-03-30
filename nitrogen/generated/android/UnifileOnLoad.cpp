@@ -17,10 +17,8 @@
 
 #include "JHybridUniFileSpec.hpp"
 #include "JHybridUniFileFactorySpec.hpp"
-#include "JHybridUnifileSpec.hpp"
 #include <NitroModules/JNISharedPtr.hpp>
 #include <NitroModules/DefaultConstructableObject.hpp>
-#include "JHybridUnifileFactorySpec.hpp"
 
 namespace margelo::nitro::unifile {
 
@@ -36,21 +34,21 @@ int initialize(JavaVM* vm) {
 
     // Register Nitro Hybrid Objects
     HybridObjectRegistry::registerHybridObjectConstructor(
-      "Unifile",
+      "UniFile",
       []() -> std::shared_ptr<HybridObject> {
-        static DefaultConstructableObject<JHybridUnifileSpec::javaobject> object("com/unifile/HybridUniFile");
+        static DefaultConstructableObject<JHybridUniFileSpec::javaobject> object("com/unifile/HybridUniFile");
         auto instance = object.create();
         auto globalRef = jni::make_global(instance);
-        return JNISharedPtr::make_shared_from_jni<JHybridUnifileSpec>(globalRef);
+        return JNISharedPtr::make_shared_from_jni<JHybridUniFileSpec>(globalRef);
       }
     );
     HybridObjectRegistry::registerHybridObjectConstructor(
-      "UnifileFactory",
+      "UniFileFactory",
       []() -> std::shared_ptr<HybridObject> {
-        static DefaultConstructableObject<JHybridUnifileFactorySpec::javaobject> object("com/unifile/HybridUniFileFactory");
+        static DefaultConstructableObject<JHybridUniFileFactorySpec::javaobject> object("com/unifile/HybridUniFileFactory");
         auto instance = object.create();
         auto globalRef = jni::make_global(instance);
-        return JNISharedPtr::make_shared_from_jni<JHybridUnifileFactorySpec>(globalRef);
+        return JNISharedPtr::make_shared_from_jni<JHybridUniFileFactorySpec>(globalRef);
       }
     );
   });
