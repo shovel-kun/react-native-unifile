@@ -1,5 +1,10 @@
 import { NitroModules } from 'react-native-nitro-modules'
-import type { Unifile as UnifileSpec } from './specs/unifile.nitro'
+import type { UniFileFactory as UniFileFactorySpec } from './specs/unifilefactory.nitro'
 
-export const Unifile =
-  NitroModules.createHybridObject<UnifileSpec>('Unifile')
+const UniFile =
+  NitroModules.createHybridObject<UniFileFactorySpec>('UniFileFactory')
+
+const fromUri = (uri: string) => UniFile.fromUri(uri)
+
+export { fromUri }
+

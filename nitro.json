@@ -14,7 +14,10 @@
   },
   "autolinking": {
     "Unifile": {
-      "kotlin": "HybridUnifile"
+      "kotlin": "HybridUniFile"
+    },
+    "UnifileFactory": {
+      "kotlin": "HybridUniFileFactory"
     }
   },
   "ignorePaths": [
