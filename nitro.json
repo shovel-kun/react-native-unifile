@@ -1,0 +1,23 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "unifile"
+  ],
+  "ios": {
+    "iosModuleName": "Unifile"
+  },
+  "android": {
+    "androidNamespace": [
+      "unifile"
+    ],
+    "androidCxxLibName": "Unifile"
+  },
+  "autolinking": {
+    "Unifile": {
+      "kotlin": "HybridUnifile"
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}
