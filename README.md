@@ -1,4 +1,5 @@
 # react-native-unifile
+[![npm](https://npmbadge.com/npm/react-native-unifile)](https://www.npmjs.com/package/react-native-unifile)
 
 ## Requirements
 
