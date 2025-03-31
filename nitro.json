@@ -13,10 +13,10 @@
     "androidCxxLibName": "Unifile"
   },
   "autolinking": {
-    "Unifile": {
+    "UniFile": {
       "kotlin": "HybridUniFile"
     },
-    "UnifileFactory": {
+    "UniFileFactory": {
       "kotlin": "HybridUniFileFactory"
     }
   },
