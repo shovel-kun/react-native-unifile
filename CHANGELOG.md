@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0](https://github.com/shovel-kun/react-native-unifile/compare/v0.2.4...v0.3.0) (2025-04-13)
+
+### ✨ Features
+
+* drop commonjs support ([031be47](https://github.com/shovel-kun/react-native-unifile/commit/031be4764fe24b9522e56c21ee1ed9adbf54a5de))
+
 ## [0.2.4](https://github.com/shovel-kun/react-native-unifile/compare/v0.2.3...v0.2.4) (2025-03-30)
 
 ### 🐛 Bug Fixes
