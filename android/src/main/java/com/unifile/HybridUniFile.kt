@@ -4,6 +4,7 @@ import androidx.annotation.Keep
 import com.facebook.proguard.annotations.DoNotStrip
 import com.margelo.nitro.unifile.HybridUniFileSpec
 import com.hippo.unifile.UniFile
+import com.margelo.nitro.core.Promise
 
 @Keep
 @DoNotStrip
@@ -30,6 +31,7 @@ class HybridUniFile(val unifile: UniFile): HybridUniFileSpec() {
     }
 
     override fun createDirectory(displayName: String): HybridUniFileSpec? {
+        unifile.openOutputStream()
         return unifile.createDirectory(displayName)?.let { HybridUniFile(it) }
     }
 
@@ -51,8 +53,36 @@ class HybridUniFile(val unifile: UniFile): HybridUniFileSpec() {
         return unifile.listFiles()?.map { HybridUniFile(it) }?.toTypedArray() ?: arrayOf()
     }
 
-//    override fun listFiles(filter: FilenameFilter): Array<HybridUniFileSpec> {
-//        //unifile.listFiles(FilenameFilter { dir, name -> true })
-//        return unifile.listFiles(filter)?.map { HybridUniFile(it) }?.toTypedArray() ?: arrayOf()
-//    }
+    fun readAsString(): String? {
+        return try {
+            unifile.openInputStream().use { inputStream ->
+                inputStream.bufferedReader().use { reader ->
+                    reader.readText()
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+
+    fun readAsStringAsync(): Promise<String?> {
+        return try {
+            Promise.async {
+                unifile.openInputStream().use { inputStream ->
+                    inputStream.bufferedReader().use { reader ->
+                        reader.readText()
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Promise.rejected(e)
+        }
+    }
+
+    //override fun listFiles(filter: FilenameFilter): Array<HybridUniFileSpec> {
+    //    //unifile.listFiles(FilenameFilter { dir, name -> true })
+    //    return unifile.listFiles(filter)?.map { HybridUniFile(it) }?.toTypedArray() ?: arrayOf()
+    //}
 }
